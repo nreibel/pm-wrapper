@@ -12,9 +12,9 @@ fi
 function install()
 {
     cp "./files/$SCRIPT_NAME" "$INSTALL_DIR"
-    ln -s "$INSTALL_DIR/$SCRIPT_NAME" "$INSTALL_DIR/apt-pm" 2>/dev/null
-    ln -s "$INSTALL_DIR/$SCRIPT_NAME" "$INSTALL_DIR/pip-pm" 2>/dev/null
-    ln -s "$INSTALL_DIR/$SCRIPT_NAME" "$INSTALL_DIR/snap-pm" 2>/dev/null
+    ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/apt-pm" 2>/dev/null
+    ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/pip-pm" 2>/dev/null
+    ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/snap-pm" 2>/dev/null
 }
 
 function remove()
