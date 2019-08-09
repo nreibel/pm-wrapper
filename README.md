@@ -2,7 +2,7 @@
 
 No more searching for package manager syntaxes!
 
-Allows to run basic package manager operations with a common syntax, e.g. `pip-pm update \<package\>`
+Allows to run basic package manager operations with a common syntax, e.g. `pip-pm update <package>`
 
 Supported package managers :
 - apt
