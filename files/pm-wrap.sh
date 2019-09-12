@@ -75,10 +75,10 @@ case "$1" in
                 ;;
         esac
         ;;
-    update-all)
+    full-update)
         case `basename $0` in
             apt-pm)
-                apt-get update && apt-get upgrade
+                apt-get update && apt-get -y dist-upgrade
                 ;;
             pip-pm)
                 for pkg in `pip list --outdated | tail -n +3 | awk '{print $1}'`
