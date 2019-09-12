@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 SCRIPT_NAME='pm-wrap.sh'
-INSTALL_DIR='/usr/bin/'
+INSTALL_DIR='/usr/local/bin/'
 
 # Check root
 if [ $EUID -ne 0 ]; then
