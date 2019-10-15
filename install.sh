@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 SCRIPT_NAME='pm-wrap.sh'
-INSTALL_DIR='/usr/local/bin/'
+INSTALL_DIR='/usr/local/bin'
 
 # Check root
 if [ $EUID -ne 0 ]; then
@@ -15,11 +15,13 @@ function install()
     ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/apt-pm" 2>/dev/null
     ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/pip-pm" 2>/dev/null
     ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/snap-pm" 2>/dev/null
+    ln -s `realpath "$INSTALL_DIR/$SCRIPT_NAME"` "$INSTALL_DIR/dnf-pm" 2>/dev/null
 }
 
 function remove()
 {
-    rm "$INSTALL_DIR/$SCRIPT_NAME" "$INSTALL_DIR/apt-pm" "$INSTALL_DIR/pip-pm" "$INSTALL_DIR/snap-pm"
+    rm "$INSTALL_DIR/$SCRIPT_NAME"
+    rm "$INSTALL_DIR"/*-pm
 }
 
 case $1 in

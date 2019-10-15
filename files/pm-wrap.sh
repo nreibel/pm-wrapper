@@ -18,6 +18,9 @@ case "$1" in
             snap-pm)
                 snap search $2
                 ;;
+            dnf-pm)
+                dnf search $2
+                ;;
             *)
                 echo "Unsupported package manager"
                 usage
@@ -34,6 +37,9 @@ case "$1" in
                 ;;
             snap-pm)
                 snap install $2
+                ;;
+            dnf-pm)
+                dnf install $2
                 ;;
             *)
                 echo "Unsupported package manager"
@@ -52,6 +58,9 @@ case "$1" in
             snap-pm)
                 snap refresh $2
                 ;;
+            dnf-pm)
+                dnf upgrade $2
+                ;;
             *)
                 echo "Unsupported package manager"
                 usage
@@ -69,13 +78,16 @@ case "$1" in
             snap-pm)
                 snap remove $2
                 ;;
+            dnf-pm)
+                dnf remove $2
+                ;;
             *)
                 echo "Unsupported package manager"
                 usage
                 ;;
         esac
         ;;
-    full-update)
+    update-all)
         case `basename $0` in
             apt-pm)
                 apt-get update && apt-get -y dist-upgrade
@@ -88,6 +100,9 @@ case "$1" in
                 ;;
             snap-pm)
                 snap refresh
+                ;;
+            dnf-pm)
+                dnf upgrade
                 ;;
             *)
                 echo "Unsupported package manager"
